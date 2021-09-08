@@ -1,0 +1,77 @@
+form {
+    
+    
+    @include breakpoint (medium) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+      .input-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        
+        width: 100%;
+        height: 44px;
+        margin-top: 20px;
+        padding-right: 77px;
+        padding-left: 77px;
+        @include breakpoint (medium) {
+          padding-right: 0px;
+          padding-left: 0px;
+          width: 80%;
+        }
+
+
+        input {
+          border-radius: 8px;
+          
+          border: 1px solid #D0CDE1;
+          font-size: 14px;
+          transition: all 0.2s;
+
+          &.is-valid {
+            border-color: #EB5757;
+          }
+
+        }
+        label {
+          position: absolute;
+          color: #8D8B99;
+          font-size: 14px;
+          
+          margin-left: 10px;
+          transition: all 0.2s;
+          pointer-events: none;
+          transition: all 0.4s;
+          &.is-focus {
+            font-size: 9px;
+            margin-top: -28px;
+          }
+          &.is-valid {
+            color: #EB5757;
+          }
+        }
+        .forget-pass {
+          position: absolute;
+          align-self: flex-end;
+          font-size: 14px;
+          
+          margin-right: 174px;
+          
+          color: #508E87;
+          cursor: pointer;
+          @include breakpoint (medium) {
+            margin-right: 12px;
+              
+          }
+        }
+      }
+
+    
+
+  }
+  

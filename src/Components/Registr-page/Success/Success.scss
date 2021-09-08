@@ -1,0 +1,55 @@
+.success__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    a:first-child {
+      display: flex;
+        align-self: flex-start;
+        padding-top: 31px;
+        padding-left: 40px;
+        @include breakpoint (medium) {
+          padding-top: 20px;
+          padding-left: 20px;
+        }
+      }
+      &-img {
+        padding-top: 122px;
+        @include breakpoint (medium) {
+          padding-top: 115px;
+          width: 90%;
+        }
+      }
+      h2 {
+        padding-top: 61px;
+        font-weight: 500;
+        @include breakpoint (medium) {
+          font-size: 32px;
+          padding-top: 42px;
+        }
+      }
+      span {
+        font-size: 24px;
+        text-align: center;
+        padding-top: 25px;
+        width: 75%;
+        line-height: 35px;
+        @include breakpoint (medium) {
+            font-size: 16px;
+            min-width: 80%;
+            padding-top: 10px;
+            line-height: 23px;
+          }
+      }
+      a {
+        width: 100%;
+        text-align: center;
+        button {
+          margin-top: 90px;
+          margin-bottom: 40px;
+          @include breakpoint (medium) {
+            width: 80%;
+            margin-bottom: 20px;
+          }
+        }
+      }
+}

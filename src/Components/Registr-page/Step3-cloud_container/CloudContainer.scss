@@ -1,0 +1,194 @@
+.cloud__container {
+
+    width: 678px;
+    min-height: 321px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    
+    flex-wrap: wrap;
+    @include breakpoint (small) {
+      width: auto;
+      max-width: 90%;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      min-height: 100px;
+    }
+    &-button-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px dashed #BDBDBD;
+        border-radius: 10px 10px;
+
+        width: 329px;
+        height: 321px;
+        margin-bottom: 31px;
+        transition: all 0.1s ease-in;
+        @include breakpoint (small) {
+          align-items:flex-start;
+          height: auto;
+          border: none;
+        }
+        &.hover {
+          border: 3px dashed $green-rect;
+        }
+        img {
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            opacity: 1;
+            transition: all 0.1s ease-in;
+            position: relative;
+            &:hover {
+              width: 58px;
+              height: 58px;
+            }
+            @include breakpoint (small) {
+              position: absolute;
+              opacity: 0;
+            }
+          }
+          .cloud-icon-text {
+            opacity: 1;
+            transition: all 0.1s ease-in;
+            position: relative;
+            @include breakpoint (small) {
+              position: absolute;
+              opacity: 0;
+            }
+          }
+          p {
+            pointer-events: none;
+          }
+          p:nth-child(2) {
+            font-size: 18px;
+            margin-top: 15px;
+            
+            text-align: center;
+          }
+          p:nth-child(3) {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #828282;
+          }
+          &.default {
+            width: 100%;
+          }
+
+    }
+
+    &-photo {
+        width: 329px;
+        height: auto;
+        margin-bottom: 31px;
+        border: 1px dashed #BDBDBD;
+        border-radius: 10px 10px;
+        @include breakpoint (small) {
+          display: flex;
+          align-items: center;
+          height: 60px;
+          border: none;
+          
+        }
+        &-frame {
+          display: flex;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          background: $camera-color;
+          @include breakpoint (small) {
+            width: 48px;
+            height: 48px;
+          }
+        }
+        .cssload-container {
+          color: white;
+          opacity: 80%;
+        }
+        img {
+          height: auto;
+          width: 100%;
+          border-radius: 10px 10px;
+          
+        }
+        &-description {
+          display: flex;
+          flex-direction: column;
+
+        p {
+            margin-left: 20px;
+            @include breakpoint (small) {
+              margin-left: 12px;
+            }
+        }
+        p:nth-child(1) {
+            font-size: 16px;
+            margin-top: 16px;
+          }
+        p:nth-child(2) {
+            font-size: 12px;
+            margin-top: 6px;
+            color: #828282;
+            padding-bottom: 16px;
+          }
+          .icon-trash {
+            color: $green-rect;
+            cursor: pointer;
+            align-self: flex-end;
+            position: absolute;
+            margin-top: 28px;
+            margin-right: 25px;
+            display: block;
+            transition: 0.2s ease-in;
+            @include breakpoint (small) {
+
+              left: 85%;
+            }
+            &:hover {
+              font-size: 120%;
+            }
+          }
+        }
+
+    }
+    .mobil-container {
+      opacity: 0;
+      position: absolute;
+      transition: all ease-in 0.1s;
+      width: 329px;
+      pointer-events: none;
+      @include breakpoint (small) {
+        pointer-events: all;
+        opacity: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      
+      &-circle {
+          display: flex;
+          border-radius: 50%;
+          border: 2px solid #E0E0E0;
+          width: 48px;
+          height: 48px;
+          align-items: center;
+          justify-content: center;
+          color: $green-rect;
+          font-size: 36px;
+          cursor: pointer;
+      }
+    }
+    span {
+        display: block;
+        margin-left: 12px;
+        color: $green-rect;
+        line-height: 20px;
+        p {
+          color: #828282;
+          font-size: 12px;
+        }
+      }
+    
+}

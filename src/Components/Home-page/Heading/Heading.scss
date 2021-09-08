@@ -1,0 +1,82 @@
+.heading__container {
+
+  display: flex;
+  flex-direction: column;
+  height: 730px;
+  img {
+    pointer-events: none;
+    order: 2;
+    &:nth-child(2) {
+      position: absolute;
+      align-self: flex-end;
+
+      @include breakpoint (medium) {
+          display: none;
+      }
+    }
+    &:nth-child(3) {
+      order: 1;
+    }
+  }
+
+  &__registration {
+    display: flex;
+    margin-left: 10%;
+    flex-direction: column;
+    width: 50%;
+    order: 1;
+    @include breakpoint (superLarge) {
+      margin-left: 20%;
+    }
+    @include breakpoint (medium) {
+      order: 2;
+      width: 30%;
+      margin-left: 10%;
+    }
+    @include breakpoint (small) {
+      margin-left: 20px;
+    }
+    h1 {
+      padding-top: 102px;
+      @include breakpoint (medium) {
+          padding-top: 20px;
+          width: 90%;
+        }
+    }
+    span {
+      padding-top: 30px;
+      font-size: 24px;
+      z-index: 3;
+      @include breakpoint (medium) {
+          font-size: 16px;
+          padding-top: 17px;
+      }
+    }
+    &-link {
+      z-index: 6;
+      width: 40%;
+      height: 50px;
+      margin-top: 40px;
+      @include breakpoint (medium) {
+        margin-top: 25px;
+        width: 100%;
+    }
+      button {
+          width: 100%;
+          @include breakpoint (medium) {
+              width: 90%;
+          }
+          @include breakpoint (small) {
+            width: 100%;
+        }
+        }
+    }
+    @include breakpoint (medium) {
+      width: 90%;
+    }
+  }
+  @include breakpoint (medium) {
+      flex-direction: column;
+      height: 520px;
+  }
+}

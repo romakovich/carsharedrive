@@ -1,0 +1,46 @@
+.footer__container {
+    display: flex;
+  
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 40px 0px 40px;
+    height: 124px;
+    margin-top: 120px;
+    background: $footer-color;
+    @include breakpoint (medium) {
+      justify-content: center;
+      margin-top: 60px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0px 0px 0px 20px;
+    }
+  
+    & * {
+      @include breakpoint (medium) {
+        padding-top: 14px;
+      }
+    }
+  
+    &-copyright {
+      font-size: 16px;
+      color: $copyright-font-color;
+    }
+    &-social-media {
+      @include breakpoint (medium) {
+        padding-bottom: 20px;
+      }
+      a {
+        color: $socmedia-font-color;
+        font-size: 26.7px;
+        margin-left: 19.3px;
+        @include breakpoint (medium) {
+          margin-left: 0;
+          padding-top: 16px;
+          padding-right: 19px;
+        }
+        &:hover {
+          @include hoverSocMedia();
+        }
+      }
+    }
+  }

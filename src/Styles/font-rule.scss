@@ -1,0 +1,16 @@
+$green-rect: #61A199;
+$translucent-rect:#F7F9FB;
+$footer-color: #3F3D56;
+$heading-font-color: #4F4F4F;
+$teams-prof-color: #828282;
+$copyright-font-color: rgb(255,255,255,0.4);
+$socmedia-font-color: white;
+$questions-grey: #F7F7F8;
+$disable: #B4B5BD;
+@mixin hoverSocMedia() {
+    color: yellow;
+    text-shadow: 0px 0px 10px rgba(255,255,255,0.8);
+    cursor:pointer;
+}
+$camera-color: #F7F7F8;
+$nav-font-hover: cadetblue;

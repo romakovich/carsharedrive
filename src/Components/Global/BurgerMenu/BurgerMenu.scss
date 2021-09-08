@@ -1,0 +1,28 @@
+.mobile__burger {
+    position: fixed;
+    z-index: 100;
+    width: 18px;
+    height: 12px;
+    left: 85%;
+    top: 28px;
+    cursor: pointer;
+    &.is-active {
+      position: absolute;
+    }
+    &-rect {
+      position: absolute;
+      width: 100%;
+      height: 20%;
+      background: black;
+      &:nth-child(1) { 
+        top: 0%; 
+      }
+      &:nth-child(2) { 
+        top: 40%; 
+      }
+      &:nth-child(3) { 
+        top: 80%; 
+      }
+    }
+  }
+  

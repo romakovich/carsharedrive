@@ -1,0 +1,30 @@
+.rent-rule__container {
+    @include standart-container();
+    height: 552px;
+    width: 100%;
+    background: $translucent-rect;
+    @include breakpoint (medium) {
+      height: 287px;
+      align-items: flex-start;
+    }
+    h2 {
+      font-weight: 500;
+      margin-top: 100px;
+      @include breakpoint (medium) {
+        margin-top: 40px;
+        margin-left: 10%;
+      }
+      @include breakpoint (small) {
+        margin-left: 20px;
+      }
+    }
+    span {
+      margin-top: 21px;
+      font-size: 24px;
+      width: 90%;
+      @include breakpoint (medium) {
+        font-size: 14px;
+        margin-top: 10px;
+      }
+    }
+}

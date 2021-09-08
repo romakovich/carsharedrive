@@ -1,0 +1,146 @@
+@import 'glyphter.scss';
+@import 'font-rule.scss';
+@import "breakpoints.scss";
+@import "normalize.scss";
+@import "keyframes.scss";
+@import "../components/Global/Header/Header.scss";
+@import "../components/Global/footer/footer.scss";
+@import "../components/Global/burgerMenu/burgerMenu.scss";
+/*Home-page*/
+//@import "../components/Home-page/heading.scss";
+@import "../components/Home-page/heading/heading.scss";
+@import "../components/Home-page/description/description.scss";
+@import "../components/Home-page/rentRule/rentRule.scss";
+@import "../components/Home-page/profit/profit.scss";
+@import "../components/Home-page/CirclesBlock/CirclesBlock.scss";
+@import "../components/Home-page/review/review.scss";
+@import "../components/Home-page/cta/cta.scss";
+/*Login*/
+@import "../components/Global/Login/ResetPassword/ResetPassword.scss";
+@import "../components/Global/Login/Login.scss";
+@import "../components/Global/Login/inputBlock/inputBlock.scss";
+/*About-page*/
+@import "../components/about-page/descrContacts/descrContacts.scss";
+@import "../components/about-page/Team/Team.scss";
+/*Questions-page*/
+@import "../components/questions-page/Questions.scss";
+@import "../components/global/Page404/Page404.scss";
+/*Step1*/
+@import "../components/registr-page/Registration.scss";
+@import "../components/registr-page/Step3-cloud_container/CloudContainer.scss";
+@import "../components/registr-page/Step2/PhotoAvatar.scss";
+/*Success*/
+@import "../components/registr-page/success/success.scss";
+
+@import "../components/global/Datepicker/DatePicker.scss";
+/*Rent-page*/
+@import "../components/RentPage/RentPage.scss";
+@import "../components/RegistrationRent/RegistrationRent.scss";
+@import "../components/Mycars/MyCars.scss";
+@import "../components/newCar/newCar.scss";
+@import "../components/carpage/carpage.scss";
+@import '../components/messages/messages.scss';
+@import '../components/userpage/userpage.scss';
+
+@import '../Components/Global/InputMenu/InputMenu.scss';
+
+html {
+  overflow-x: hidden;
+  &::-webkit-scrollbar { width: 8px; height: 3px;}
+  &::-webkit-scrollbar-button {  background-color: $green-rect; }      
+  &::-webkit-scrollbar-thumb { height: 50px; background-color: $green-rect }
+  @include breakpoint (medium) {
+    overflow-x: hidden;
+  }
+}
+
+// .is-disable {
+//   position: absolute;
+//   opacity: 0;
+//   transition: all 0.2s ease-in;
+// }
+
+.fake-input {
+  position: absolute; 
+  display: none
+}
+.none-pointer-events {
+  pointer-events: none;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+  padding-bottom: 40px;
+
+  button {
+    width: 50%;
+    @include breakpoint (medium) {
+        width: 80%;
+      }
+}
+.cssload-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 49px;
+  text-align: center;
+  pointer-events: none;
+  .cssload-zenith {
+    right: 50%;
+    width: 24px;
+    height: 24px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    box-shadow: 3px 3px 1px rgb(255, 255, 255);
+    opacity: 0;
+    transition: all 0.3s;
+    &.animate {
+      animation: cssload-spin 690ms infinite linear;
+      opacity: 1;
+    }
+  }
+}
+}
+
+.cancel-cross {
+    opacity: 70%;
+    cursor: pointer;
+    pointer-events: all !important;
+    transition: ease-in 0.1s;
+    &:hover {
+      opacity: 120%;
+      font-size: 150%;
+    }
+}
+
+input {
+  border-radius: 8px;
+  &:focus {
+    border-radius: 8px;
+  }
+}
+
+.back-page-arrow {
+  position: absolute;
+  width: 75px;
+  height: 24px;
+  left: 15%;
+
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: $green-rect;
+
+
+  @include breakpoint (medium) {
+    margin-top: -30px;
+    left: 10%;
+  }
+}

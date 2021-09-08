@@ -1,0 +1,116 @@
+.user-page__container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 90px;
+    @include breakpoint (medium) {
+        margin-top: 50px;
+    }
+    &-avatar {
+        width: 200px;
+        height: 200px;
+
+        border-radius: 50%;
+        object-fit: cover;
+        @include breakpoint (medium) {
+            width: 80px;
+            height: 80px;
+        }
+    }
+    &-rate {
+        display: flex;
+        margin-top: 15px;
+        @include breakpoint (medium) {
+            margin-top: 10px;
+        }
+        .rate-item {
+            font-size: 150%;
+            margin-left: 3px;
+            margin-right: 3px;
+            color: #FFD037;
+            @include breakpoint (medium) {
+                font-size: 150%;
+            }
+        }
+    }
+    &-tochat {
+        margin-top: 20px;
+        cursor: pointer;
+        a {
+            background: black;
+            width: 10px;
+            height: 20px;
+            
+        }
+    }
+
+    h3 {
+        margin-top: 60px;
+        font-size: 48px;
+        font-weight: 500;
+        margin-bottom: 0px;
+        @include breakpoint (medium) {
+            margin-top: 20px;
+            font-size: 32px;
+        }
+    }
+    &-info {
+        display: flex;
+        padding: 31px 40px;
+        margin-top: 60px;
+        width: 50%;
+        background: #F7F9FB;
+        @include breakpoint (medium) {
+            flex-direction: column;
+            width: 60%;
+        }
+        &-left, &-right {
+            flex-direction: column;
+            div {
+                margin-top: 23px;
+            }
+            div:first-child {
+                margin-top: 0px;
+            }
+        }
+        &-left {
+            width: 40%;
+            color: #828282;
+            @include breakpoint (medium) {
+                width: 100%;
+            }
+        }
+    }
+    .mycars__container {
+        margin-top: 60px;
+        .car-frame {
+            margin-top: 0px !important;
+            &-name {
+                color: black;
+                align-self: start;
+                margin-left: 0px;
+            }
+            &-info > div, p {
+                margin-top: 10px;
+            }
+            &-rating {
+                margin-top: 0px;
+            }
+        }
+    }
+    .mobil {
+        display: none;
+        color: black;
+        @include breakpoint (medium) {
+            display: flex;
+            margin-top: 5px !important;
+        }
+    }
+    .no-mobil {
+        display: flex;
+        @include breakpoint (medium) {
+            display: none;
+        }
+    }
+}

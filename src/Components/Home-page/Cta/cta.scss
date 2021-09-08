@@ -1,0 +1,33 @@
+.cta__container {
+    @include standart-container();
+    margin-top: 104px;
+    @include breakpoint (medium) {
+      justify-content: flex-start;
+    }
+    img {
+      @include breakpoint (medium) {
+        width: 50%;
+        margin-top: 1px;
+      }
+    }
+    h2 {
+      margin-top: 51px;
+      font-weight: 500;
+      @include breakpoint (medium) {
+        width: 70%;
+        text-align: center;
+        margin-top: 30px;
+      }
+    }
+    a {
+      width: 100%;
+      text-align: center;
+      button {
+        margin-top: 40px;
+        @include breakpoint (medium) {
+          margin-top: 30px;
+          width: 80%;
+        }
+      }
+    }
+  }

@@ -1,0 +1,460 @@
+.rent-page {
+    display: flex;
+    justify-content: center;
+    @include breakpoint (medium) {
+        margin-top: 68px;
+    }
+    @include breakpoint (iphone5) {
+        zoom: 0.8;
+    }
+    &.is-finder {
+        @include breakpoint (medium) {
+            margin-top: 0px;
+        }
+    }
+    h2 {
+        margin-bottom: 50px;
+        margin-top: 120px;
+        @include breakpoint (medium) {
+            margin-bottom: 0px;
+            font-size: 32px;
+            text-align: center;
+            margin-top: 0px;
+        }
+    }
+    &-recommend {
+        
+        font-size: 36px;
+        font-weight: 500;
+        margin-top: 100px;
+        @include breakpoint (medium) {
+            font-size: 24px;
+            margin-top: 40px;
+            text-align: center;
+        }
+    }
+    &-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        justify-content: center;
+        @include breakpoint (medium) {
+            width: auto;
+        }
+        &.finder {
+            width: 95%;
+            justify-content: flex-start;
+        }
+        &__filter {
+            display: flex;
+            width: calc(100% - 12.5px);
+            justify-content: space-between;
+            overflow:hidden;
+            
+            @include breakpoint (medium) {
+                margin-top: 30px;
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+            }
+            &.finder {
+                margin-top: 30px;
+                @include breakpoint (medium) {
+                    width: calc(100% - 12.5px);
+                }
+            }
+            .input-wrapper {
+                
+                display: flex;
+                padding-right: 10px;
+                width: 100%;
+                z-index: 102;
+                @include breakpoint (medium) {
+                    flex-direction: column;
+                    padding-right: 0px;
+                    
+                }
+                input {
+                    width: 100%;
+                    @include breakpoint (medium) {
+                        width: auto;
+                    }
+                }
+            }
+
+            .button-wrapper {
+                width: 25%;
+                margin-top: 0px;
+                padding-bottom: 0px;
+                z-index: 101;
+                &.is-finder {
+                    @include breakpoint (medium) {
+                        display: none;
+                    }
+                }
+                
+                &.is-map {
+                    padding-right: 40px;
+                    width: 20%;
+                }
+                
+                @include breakpoint (medium) {
+                    margin-top: 10px;
+                    width: 100%;
+                }
+                button {
+                    margin-left: auto;
+                    @include breakpoint (medium) {
+                        margin-left: 0px;
+                        width: 100%;
+                        
+                    }
+                }
+            }
+        }
+
+        &__sort {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: calc(100% - 12.5px);
+            margin-top: 50px;
+            @include breakpoint (medium) {
+                margin-top: 30px;
+                width: 100%;
+                justify-content: center;    
+            }
+            .wrapper {
+                display: flex;
+                @include breakpoint (medium) {
+                }
+                button {
+                    background: #F7F7F8;
+                    border: 1px solid #D0CDE1;
+                    color: black;
+                    font-size: 14px;
+                    width: auto;
+                    padding: 10px 12px;
+                    margin: 0px 5px;
+                    transition: all 0.2s ease-in-out;
+                    &.active {
+                        background: $green-rect;
+                        color: rgb(235, 235, 235);
+                    }
+                    &:last-child {
+                        @include breakpoint (medium) {
+                            display: none;
+                        }
+                    }
+                }
+
+            }
+            .map-wrapper {
+                @include breakpoint (medium) {
+                    display: none;
+                }
+                display: flex;
+                cursor: pointer;
+                
+                &:hover {
+                    
+                }
+                img {
+
+                }
+                .open-map {
+                    display: block;
+                    margin-top: 0px;
+                    font-size: 14px;
+                    padding-left: 13px;
+                }
+            }
+
+        }
+
+
+        &__cars {
+            display: flex;
+            justify-content: space-between;
+            
+            flex-wrap: wrap;
+            width: calc(100% + 12.5px);
+            
+            margin-top: 35px;
+            @include breakpoint (medium) {
+                justify-content: center;
+                width: auto;
+            }
+            &.finder {
+                flex-direction: column;
+                @include breakpoint (medium) {
+                    margin-top: 0px;
+                    justify-content: center;
+                }
+            }
+
+            .car-frame {
+                display: flex;
+                min-width: 328px;
+                height: 242px;
+                margin: 15px 12.5px;
+                
+                border-radius: 10px;
+                a {
+                    position: absolute;
+                    min-width: 328px;
+                    height: 242px;
+                    border-radius: 10px;
+                    z-index: 2;
+                    background: black;
+                    opacity: 0;
+                    &:hover {
+                        opacity: 0.1;
+                    }
+                }
+                &-car {
+                    min-width: 328px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    @include breakpoint (medium) {
+                        background-position: center;
+                        height: 240px;
+                        width: auto;
+                    }
+                }
+                &:first-child {
+                    @include breakpoint (medium) {
+                        margin-top: 30px;
+                    }
+                }
+                @include breakpoint (medium) {
+                    flex-direction: row;
+                }
+                &.is-finder {
+                    @include breakpoint (medium) {
+                        flex-direction: column;
+                        height: auto;
+                    }
+                }
+
+                &-info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-left: 19px;
+                    @include breakpoint (medium) {
+                        margin-left: 0px;
+                        justify-content: flex-start;
+                    }
+                    &-wrapper {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        margin-top: 14px;
+                        @include breakpoint (medium) {
+                            order: 3;
+                            flex-direction: column;
+                            align-items: flex-start;
+                        }
+                        div:nth-child(2) {
+                            margin-left: 30px;
+                            @include breakpoint (medium) {
+                                margin-left: 0px;
+                            }
+                        }
+                        .info-driveunit-map {
+                            margin-top: 16px;
+                        }
+                        .img-driveunit-no-map {
+                            
+                            @include breakpoint (medium) {
+                                margin-left: 0px;
+                            }
+                        }
+                        &.is-map-open {
+                            flex-direction: column;
+                            align-items: flex-start;
+                        }
+                        span {
+                            margin-left: 11px;
+                            color: #8D8B99;
+                        }
+                    }
+                }
+                &-rating {
+                    font-size: 14px;
+
+                    span {
+                        font-size: 20px;
+                    }
+                    @include breakpoint (medium) {
+                        order: 1;
+                        position: absolute;
+                        align-self: flex-end;
+                        margin-top: 18px;
+                    }
+                }
+                &-price {
+                    margin-top: 30px;
+                    font-size: 18px;
+                    font-weight: 500;
+                    @include breakpoint (medium) {
+                        margin-top: 17px;
+                        order: 5;
+                    }
+                }
+                &-name {
+                    position: absolute;
+                    align-self: flex-end;
+                    color: white;
+                    font-size: 20px;
+                    margin-left: 20px;
+                    @include breakpoint (medium) {
+                        align-self: flex-end;
+                    }
+                    &.finder {
+                        position: relative;
+                        color: black;
+                        font-size: 24px;
+                        align-self: flex-start;
+                        margin-left: 0px;
+                        margin-top: 10px;
+                        @include breakpoint (medium) {
+                            margin-top: 17px;
+                            order: 2;
+                        }
+                    }
+                    p {
+                        font-size: 14px;
+                        margin-top: 5px;
+                        margin-bottom: 23px;
+                    }
+                }
+                .wrapper {
+                    display: flex;
+                    position: absolute;
+                    flex-direction: column;
+                    width: 328px;
+                    margin-top: 15px;
+                    &.is-finder {
+                        @include breakpoint (medium) {
+                            display: none;
+                        }
+                    }
+                }
+                .user-page-link {
+                    width: 32px;
+                    height: 32px;
+                    background: black;
+                    align-self: flex-end;
+                    margin-right: 15px;
+                    min-width: 0px;
+                    z-index: 4;
+                }
+                &-avatar {
+                    align-self: flex-end;
+                    margin-right: 15px;
+                    background-size: cover;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    z-index: 3;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+                    @include breakpoint (medium) {
+                        margin-right: 25px;
+                    }
+                    &:hover {
+                        border: 1px solid $green-rect;
+                    }
+                }
+                &-button-wrapper {
+                    
+                    display: flex;
+                    align-self: center;
+                    margin-left: auto;
+                    a {
+                        position: absolute;
+                        min-width: auto;
+                        width: 158px;
+                        height: 50px;
+                        // &:hover {
+                        //     opacity: 0;
+                        // }
+                    }
+                }
+                &-action {
+                    background: #E8F1F0;
+                    color: #61A199;
+                    width: 158px;
+                    text-align: center;
+                    padding-left: 0px;
+                    @include breakpoint (medium) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .yandex__map {
+
+        &-cancel {
+            position: absolute;
+            z-index: 2;
+            align-self: flex-end;
+
+            margin-top: 30px;
+            margin-right: 30px;
+            width: 44px;
+            height: 44px;
+            background: white;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+            border-radius: 6px;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+    }
+}
+
+.mobil-finder__container {
+
+    position: fixed;
+    top: 0;
+  
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 100;
+    overflow: hidden;
+    opacity: 1;
+    pointer-events: all;
+
+    transition: all ease-in-out 0.2s;
+    &.is-disable {
+        opacity: 0;
+        pointer-events: none;
+    }
+    &-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 26px;
+        
+        margin-left: auto;
+    }
+    &-text {
+
+    }
+    &-close {
+        position: fixed;
+        font-size:30px;
+        top: 1%;
+        left: 88%;
+    }
+  }

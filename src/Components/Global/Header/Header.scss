@@ -1,0 +1,75 @@
+@import '../BurgerMenu/BurgerMenu.scss';
+@import '../HeaderMobile/HeaderMobile.scss';
+
+header {
+  transition: all 0.5s ease-in;
+}
+
+.is-main {
+  position: absolute;
+}
+
+nav {
+  height: 90px;
+  width: 100%;
+
+    .navbar__container {
+      display: flex;
+
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 31px;
+      justify-content: space-between;
+      align-items: center;
+      @include breakpoint(medium) {
+        padding-top: 20px;
+        padding-left: 20px;
+      }
+
+      .navbar__menu {
+        display: flex;
+        align-items: center;
+
+        &-item {
+          margin-right: 30px;
+          font-size: 16px;
+          &:hover {
+            color: $nav-font-hover;
+            font-size: 20px;
+            cursor:pointer;
+          }
+          &:nth-child(3) {
+            display: flex;
+            div {
+              color: #EB5757;
+              margin-top: -5%;
+              margin-left: 3%;
+            }
+          }
+        }
+        &-avatar {
+          border-radius: 50%;
+          width: 48px;
+          height: 48px;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          margin-top: auto;
+          &:hover {
+              border: 1px solid $green-rect;
+          }
+        }
+        &-login {
+            padding: 12px 36px 12px 36px;
+            border: 1px solid;
+            border-radius: 8px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+            cursor:pointer;
+            &:hover {
+              background: $nav-font-hover;
+              color: rgb(253, 241, 241);
+            }
+          }
+      }
+    }
+  }

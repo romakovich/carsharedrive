@@ -1,0 +1,218 @@
+.mycars__container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 96px;
+    @include breakpoint (medium) {
+        margin-top: 0px;
+        
+    }
+    &-wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        @include breakpoint (medium) {
+            width: 90%;
+            align-items: center;
+        }
+        h2 {
+            align-self: center;
+            margin-top: 0px !important;
+        }
+        .car-frame:first-of-type {
+            margin-top: 80px;
+            @include breakpoint (medium) {
+                margin-top: 40px;
+            }
+        }
+        .car-frame {
+            display: flex;
+            
+            min-width: 328px;
+            height: 242px;
+            margin: 15px 12.5px;
+            
+            border-radius: 10px;
+            a {
+                position: absolute;
+                min-width: 328px;
+                height: 242px;
+                border-radius: 10px;
+                z-index: 2;
+                background: black;
+                opacity: 0;
+                &:hover {
+                    opacity: 0.1;
+                }
+            }
+            @include breakpoint (medium) {
+                flex-direction: column;
+                height: auto;
+
+            }
+            &-car {
+                cursor: pointer;
+                @include breakpoint (medium) {
+                    background-position: center;
+                    height: 240px;
+                    width: auto;
+                }
+            }
+            @include breakpoint (iphone5) {
+                zoom: 0.8;
+            }
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-left: 19px;
+                @include breakpoint (medium) {
+                    margin-left: 0px;
+                    justify-content: flex-start;
+                }
+                &-wrapper {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-top: 14px;
+                    @include breakpoint (medium) {
+                        order: 3;
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                    .img-driveunit-no-map {
+                        margin-left: 29px;
+                        @include breakpoint (medium) {
+                            margin-left: 0px;
+                        }
+                    }
+                    .car-frame-info-driveunit {
+                        @include breakpoint (medium) {
+                            margin-top: 16px;
+                        }
+                        &.is-map {
+
+                        }
+                    }
+                    &:first-child {
+                        background: red;
+                    }
+                    &.is-map-open {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                    span {
+                        margin-left: 11px;
+                        color: #8D8B99;
+                    }
+                }
+            }
+            &-rating {
+                font-size: 14px;
+                span {
+                    font-size: 20px;
+                    @include breakpoint (medium) {
+                        margin-top: 20px;
+                    }
+                }
+                @include breakpoint (medium) {
+                    order: 1;
+                    position: absolute;
+                    align-self: flex-end;
+                    margin-top: 18px;
+                }
+            }
+            &-price {
+                margin-top: 30px;
+                font-size: 18px;
+                font-weight: 500;
+                @include breakpoint (medium) {
+                    margin-top: 17px;
+                    order: 5;
+                }
+            }
+            &-name {
+                
+                align-self: flex-end;
+                color: white;
+                font-size: 20px;
+                margin-left: 20px;
+                @include breakpoint (medium) {
+                    margin-top: 17px;
+                    order: 2;
+                }
+                &.finder {
+
+                    position: relative;
+                    color: black;
+                    font-size: 24px;
+                    align-self: flex-start;
+                    margin-left: 0px;
+                    margin-top: 10px;
+                    @include breakpoint (medium) {
+                        margin-top: 20px;
+                    }
+                }
+                p {
+                    font-size: 14px;
+                    margin-top: 5px;
+                    margin-bottom: 23px;
+                }
+            }
+        }
+        
+        &-ferrari {
+            width: 391px;
+            height: 300px;
+            @include breakpoint (medium) {
+                width: 90%;
+            }
+        }
+        h2 {
+            margin-top: 61px;
+            width: 60%;
+            text-align: center;
+            @include breakpoint (medium) {
+                margin-top: 42px;
+                font-size: 32px;
+                width: 100%;
+            }
+        }
+
+        span {
+            margin-top: 25px;
+            font-size: 14px;
+            text-align: center;
+            @include breakpoint (medium) {
+                margin-top: 15px;
+                font-size: 16px;
+                width: 100%;
+            }
+        }
+    }
+}
+.submit-block-rect {
+    margin-top: 127px;
+    @include breakpoint (medium) {
+        margin-top: 40px;
+    }
+}
+
+.button-wrapper-mycar {
+    display: flex;
+    padding-bottom: 16px;
+    justify-content: center;
+    margin-top: 17px;
+    &.empty {
+        margin-top: 102px;
+        @include breakpoint (medium) {
+            margin-top: 71px;
+        }
+    }
+
+    button {
+        width: auto;
+        padding: 16px 40px;
+    }
+}

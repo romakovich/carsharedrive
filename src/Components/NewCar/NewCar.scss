@@ -1,0 +1,217 @@
+.newcar__container {
+    margin-top: 90px;
+    width: 100%;
+    @include standart-container();
+    flex-direction: column;
+    @include breakpoint (medium) {
+        margin-top: 70px;
+        
+      }
+      &-step {
+        color: #828282;
+        font-size: 20px;
+        @include breakpoint (medium) {
+          font-size: 12px;
+        }
+        h2 {
+          @include breakpoint (medium) {
+            font-size: 32px;
+          }
+        }
+      }
+      &-advice {
+        font-size: 24px;
+        width: 60%;
+        text-align: center;
+        line-height: 35px;
+        padding-bottom: 50px;
+        @include breakpoint (small) {
+          font-size: 16px;
+          line-height: 24px;
+          width: 90%;
+        }
+      }
+      &-description {
+        font-size: 24px;
+        width: 60%;
+        text-align: left;
+        line-height: 35px;
+        padding-bottom: 50px;
+        @include breakpoint (small) {
+          font-size: 16px;
+          line-height: 24px;
+          width: 90%;
+        }
+      }
+      form {
+        width: 60%;
+        @include breakpoint (medium) {
+            width: 80%;
+        }
+        .form-container {
+          
+            margin-top: -40px;
+            fieldset {
+                width: 100%;
+                margin-top: 60px;
+                border: 0;
+                padding: 0;
+                .form-block {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 40px;
+                    @include breakpoint (medium) {
+                      flex-direction: column;
+                      align-items: flex-start;
+                  }
+                    &-engine {
+                        display: flex;
+                        width: 60%;
+                        justify-content: flex-start;
+                        @include breakpoint (medium) {
+                            width: 100%;
+                        }
+
+                    }
+                    .input__menu__container {
+                        width: 60%;
+                        @include breakpoint (medium) {
+                            width: 100%;
+                        }
+                        input {
+                            width: auto;
+                            @include breakpoint (medium) {
+                                width: calc(100% - 16px);
+                            }
+                            &.is-mini2 {
+                                width: 30%;
+                                @include breakpoint (medium) {
+                                    width: calc(100% - 16px);
+                                }
+                            }
+                        }
+                    }
+                }
+                .step2-item__container {
+                  display: flex;
+                  align-items: center;
+
+                  border: 1px solid #E0E0E0;
+                  border-radius: 6px;
+                  padding: 23px 19px;
+                  margin-top: 15px;
+                  
+                  @include breakpoint (medium) {
+                    width: auto;
+                  }
+                  &.service {
+                    @include breakpoint (medium) {
+                      flex-direction: column;
+                      align-items: flex-start;
+                    }
+                  }
+
+                  &:first-of-type {
+                    margin-top: 30px;
+                  }
+                  &-img {
+                    color: $green-rect;
+                    font-size: 130%;
+                  }
+                  &-text {
+                    margin-left: 18px;
+                    pointer-events: none;
+                    &.service {
+                      margin-left: 0px;
+                      font-weight: 500;
+                      @include breakpoint (medium) {
+                        width: 70%;
+                      }
+                    }
+                    span {
+                      display: block;
+                      font-size: 12px;
+                      font-weight: 400;
+                      color: #828282;
+                      margin-top: -5px;
+                    }
+                  }
+                  &-price {
+                    border: 1px solid #E0E0E0;
+                    color: #BDBDBD;
+                    border-radius: 6px;
+                    padding: 12px 14px;
+                    margin-left: auto;
+                    margin-right: 30px;
+                    pointer-events: none;
+                    transition: all 0.1s ease-in-out;
+                    @include breakpoint (medium) {
+                      margin-top: 15px;
+                      margin-left: 0px;
+                    }
+                    &.active {
+                      color: black;
+                    }
+                  }
+                  &-checkpoint {
+                    display: flex;
+                    width: 36px;
+                    height: 20px;
+                    background: #EDE9E9;
+                    border-radius: 15px;
+                    
+                    cursor: pointer;
+                    @include breakpoint (medium) {
+                      padding-left: 2px;
+                    }
+                    &.service {
+                      @include breakpoint (medium) {
+                        position: absolute;
+                        align-self: flex-end;
+                      }
+                    }
+                    &.active {
+                      background: $green-rect;
+                    }
+                    &-circle {
+                      height: 16px;
+                      width: 16px;
+                      border-radius: 50%;
+                      margin: 2px 2px;
+                      background: white;
+                      &.active {
+                        margin-left: auto;
+                      }
+                    }
+                  }
+
+                }
+                legend {
+                    font-size: 36px;
+                    margin-bottom: 10px;
+                    border-bottom: none;
+                    @include breakpoint (medium) {
+                        font-size: 24px;
+                      }
+                      @include breakpoint (iphone5) {
+                        font-size: 19px;
+                        width: 100%;
+                      }
+                }
+            }
+        }
+      }
+      .submit-block {
+        margin-top: 0px;
+        .button-wrapper {
+          button {
+            width: 30%;
+            @include breakpoint (medium) {
+              width: 70%;
+            }
+          }
+        }
+      }
+
+}
