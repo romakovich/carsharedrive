@@ -1,4 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
+import { callWithToken } from "../../Components/Global/CallApi/chectToken";
 import * as error from '../Constants/Errors';
 
 export const getUserRequest = createAction('GET_USER_REQUEST');
@@ -9,7 +10,7 @@ export const getUser = mail => {
     console.log(mail)
     return (dispatch, getStore) => {
         dispatch(getUserRequest());
-        fetch(`http://localhost:8000/users/${mail}`)
+        callWithToken(`http://localhost:8000/users/${mail}`)
             .then(response => {
             dispatch(getUserRequest());
             if(!response.ok) {

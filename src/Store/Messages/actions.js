@@ -1,4 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
+import { callWithToken } from "../../Components/Global/CallApi/chectToken";
 import * as error from '../Constants/Errors';
 import { updateCar } from "../RentPage/actions";
 import { chatBot } from "./config/chatBot";
@@ -11,7 +12,7 @@ export const getUsersFailure = createAction('GET_USERS_FAILURE');
 export const getUsers = () => {
     return (dispatch, getStore) => {
         dispatch(getUsersRequest());
-        fetch(`http://localhost:8000/users?mail=${localStorage.getItem("userMail")}`)
+        callWithToken(`http://localhost:8000/users?mail=${localStorage.getItem("userMail")}`)
             .then(response => {
             dispatch(getUsersRequest());
             if(!response.ok) {
@@ -45,7 +46,7 @@ export const lastTrip = createAction('LAST_TRIP');
 export const getChatHistory = (data, name, trip) => {
     return (dispatch, getStore) => {
         dispatch(getChatHistoryRequest());
-        fetch(`http://localhost:8000/messages/chat?fromUser=${localStorage.getItem("userMail")}&toUser=${data}`)
+        callWithToken(`http://localhost:8000/messages/chat?fromUser=${localStorage.getItem("userMail")}&toUser=${data}`)
             .then(response => {
             dispatch(getChatHistoryRequest());
             if(!response.ok) {
@@ -81,11 +82,9 @@ export const updateTrip = (payload, rate, review) => {
     return (dispatch, getStore) => {
         
         dispatch(updateTripRequest());
-        fetch(`http://localhost:8000/trip/${payload.lastTrip.dateRent}`, {
-            method: 'PUT',  
-            headers: { 'Content-Type': 'application/json', },  
-            body: JSON.stringify(
-                payload.chatBot == "setRentOwner" ? {statusStartTalkOwner: true}
+        callWithToken(`http://localhost:8000/trip/${payload.lastTrip.dateRent}`,
+        'PUT',
+        payload.chatBot == "setRentOwner" ? {statusStartTalkOwner: true}
                 : payload.chatBot == "setRentClient" ? {statusStartRent: true}
                 : payload.chatBot == "setRentEnd" ? 
                 {
@@ -99,8 +98,7 @@ export const updateTrip = (payload, rate, review) => {
                     review: review,
                     
                 }
-                : "") 
-        })
+                : "")
             .then(response => {
             dispatch(updateTripRequest());
             if(!response.ok) {
@@ -181,11 +179,7 @@ export const removeMessageFailure = createAction('REMOVE_MESSAGE_FAILURE');
 export const removeMessage = (messageTime, payload) => {
     return (dispatch, getStore) => {
         dispatch(removeMessageRequest());
-        fetch(`http://localhost:8000/messages/${messageTime}`, {
-            method: 'DELETE',  
-            headers: { 'Content-Type': 'application/json', }, 
-            body: JSON.stringify(payload)
-        })
+        callWithToken(`http://localhost:8000/messages/${messageTime}`, 'DELETE', payload)
             .then(response => {
             dispatch(removeMessageRequest());
             if(!response.ok) {
@@ -215,11 +209,7 @@ export const createMessage = (payload) => {
     
     return (dispatch, getStore) => {
         dispatch(createMessageRequest());
-        fetch(`http://localhost:8000/messages/`, {
-            method: 'POST',  
-            headers: { 'Content-Type': 'application/json', },  
-            body: JSON.stringify(payload) 
-        })
+        callWithToken(`http://localhost:8000/messages/`, 'POST', payload)
             .then(response => {
             dispatch(createMessageRequest());
             if(!response.ok) {
@@ -251,11 +241,7 @@ export const updateMessageFailure = createAction('CREATE_MESSAGE_FAILURE');
 export const updateMessage = (messageTime, payload) => {
     return (dispatch, getStore) => {
         dispatch(updateMessageRequest());
-        fetch(`http://localhost:8000/messages/${messageTime}`, {
-            method: 'PUT',  
-            headers: { 'Content-Type': 'application/json', },  
-            body: JSON.stringify(payload) 
-        })
+        callWithToken(`http://localhost:8000/messages/${messageTime}`, 'PUT', payload)
             .then(response => {
             dispatch(updateMessageRequest());
             if(!response.ok) {

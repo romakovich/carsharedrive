@@ -1,4 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
+import { callWithToken } from "../../Components/Global/CallApi/chectToken";
 import { getGeo } from "../config/getGeo";
 import * as error from '../Constants/Errors';
 
@@ -11,10 +12,7 @@ export const setStep1Forms = data => {
     return (dispatch, getStore) => {
         
         dispatch(setStep1FormsRequest());
-        fetch("http://localhost:8000/rent-car/step1", {
-            method: 'POST',  
-            headers: { 'Content-Type': 'application/json', },  
-            body: JSON.stringify(data) })
+        callWithToken("http://localhost:8000/rent-car/step1", 'POST', data)
             .then(response => {
             dispatch(setStep1FormsRequest());
             if(!response.ok) {
@@ -43,7 +41,7 @@ export const createCarRequest = createAction('CREATE_CAR_REQUEST');
 export const createCarFailure = createAction('CREATE_CAR_FAILURE');
 export const createCarSuccess = createAction('CREATE_CAR_SUCCESS');
 
-export const createCar = data => {
+export const createCar = () => {
     return async (dispatch, getStore) => {
         let fullUserData = {...getStore().NewCar.step1Forms};
         fullUserData.options = getStore().NewCar.step2Forms;
@@ -64,9 +62,7 @@ export const createCar = data => {
         })
         
         dispatch(createCarRequest());
-        fetch("http://localhost:8000/rent-car/create", {
-            method: 'POST',   
-            body:  formData })
+        callWithToken("http://localhost:8000/rent-car/create", 'POST', formData, true)
             .then(response => {
             dispatch(createCarRequest());
             if(!response.ok) {

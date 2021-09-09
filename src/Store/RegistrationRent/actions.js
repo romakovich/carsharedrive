@@ -1,4 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
+import { callWithToken } from "../../Components/Global/CallApi/chectToken";
 import * as error from '../Constants/Errors';
 
 export const onAuthRequest = createAction('ON_AUTH_REQUEST');
@@ -8,10 +9,7 @@ export const onAuthFailure = createAction('ON_AUTH_FAILURE');
 export const onAuth = data => {
     return (dispatch, getStore) => {
         dispatch(onAuthRequest());
-        fetch("http://localhost:8000/users/auth/access", {
-            method: 'POST',  
-            headers: { 'Content-Type': 'application/json', },  
-            body: JSON.stringify(data) })
+        callWithToken("http://localhost:8000/users/auth/access", 'POST', data)
             .then(response => {
             dispatch(onAuthRequest());
             if(!response.ok) {

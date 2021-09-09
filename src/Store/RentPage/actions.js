@@ -23,9 +23,9 @@ export const sortCarsList = (getJson, data, mail) => {
     return (dispatch, getStore) => {
         
         dispatch(sortCarsListRequest());
-        fetch(mail ? `http://localhost:8000/rent-car/${mail}` 
-        : `http://localhost:8000/rent-car?city=${data.city}&category=${data.category}&startRent=${findStartRent}&endRent=${findEndRent}&sort=${data.sort}`
-        )
+        callWithToken(mail 
+            ? `http://localhost:8000/rent-car/${mail}` 
+        : `http://localhost:8000/rent-car?city=${data.city}&category=${data.category}&startRent=${findStartRent}&endRent=${findEndRent}&sort=${data.sort}`)
             .then(response => {
             dispatch(sortCarsListRequest());
             if(!response.ok) {
@@ -57,11 +57,7 @@ export const updateCar = (_id, payload) => {
     return (dispatch, getStore) => {
         
         dispatch(updateCarRequest());
-        fetch(`http://localhost:8000/rent-car/${_id}`,{
-            method: "PUT",
-            headers: { 'Content-Type': 'application/json', }, 
-            body: JSON.stringify(payload)
-        })
+        callWithToken(`http://localhost:8000/rent-car/${_id}`, "PUT", payload)
             .then(response => {
             dispatch(updateCarRequest());
             if(!response.ok) {
