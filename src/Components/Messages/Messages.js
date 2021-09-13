@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import Header from '../Global/Header/Header';
 import io from "socket.io-client";
 import Message from './Message';

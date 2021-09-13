@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import iconCran from '../../Assets/img/Rent-page/icon-cran.svg';
 import iconTechno from '../../Assets/img/Rent-page/icon-techno.svg';
 
 const UserPageCar = ({
-    car, myCars, isMapOpen
+    car, isMapOpen
 }) => {
 
     let nameCar = `${car.brand} ${car.model}, ${car.year}`;

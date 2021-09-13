@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createCar, setPhotosCarsDocs, setStep, setStep1Forms } from '../../Store/NewCar/actions';
+import { createCar, setStep, setStep1Forms } from '../../Store/NewCar/actions';
 
 const OnSubmit = ({ 
     step1Values, step1OK,

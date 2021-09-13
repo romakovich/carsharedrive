@@ -1,5 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useEffect, useState} from 'react';
 import EmojiItem from './EmojiItem';
 import { emojiList } from './emojiList';
 import EmojiMenuItem from './EmojiMenuItem';
@@ -20,7 +19,6 @@ const Message = ({
 
     const [rate, setRate] = useState(-1);
     const [emojiMenu, setEmojiMenu] = useState(false);
-    const [buttonActive, setButtonActive] = useState(true);
     const [review, setReview] = useState(false);
     const [reviewValue, setReviewValue] = useState("")
 

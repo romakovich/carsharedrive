@@ -13,6 +13,7 @@ import iconLupa from '../../Assets/img/Rent-page/icon-lupa.svg';
 
 import { YMaps, Map, Placemark } from "react-yandex-maps";
 import { yandexMarker } from './yandexMarker';
+import { callWithToken } from '../Global/CallApi/chectToken';
 
 export const RentPage = ({carsList
     , setCarsList, sortCarsList,
@@ -58,7 +59,7 @@ export const RentPage = ({carsList
                 sort: sort
             });  
 
-        fetch('http://localhost:8000/rent-car/start')
+        callWithToken('http://localhost:8000/rent-car/start')
         .then(date => date.json()
         .then(json => {
             json.forEach(el=>{

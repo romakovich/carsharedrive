@@ -4,8 +4,7 @@ import HeaderMobile from '../HeaderMobile/HeaderMobile';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { Link } from 'react-router-dom';
 import Login from '../../../Containers/Login/Login';
-import { useSelector, useDispatch } from 'react-redux';
-import { setAuth } from '../../../Store/Login/actions';
+import { useSelector } from 'react-redux';
 
 export const Header = ({ 
     isMain, loginIsClose, closeLogin }) => {
@@ -15,7 +14,6 @@ export const Header = ({
         document.querySelector(".mobile__wrapper").classList.toggle("is-active");
     }
     const isAuth = useSelector(state => state.login.isAuth);
-    const dispatch = useDispatch();
 
     return (
     <>

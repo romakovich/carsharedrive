@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DatePicker from '../Datepicker/DatePicker';
 import InputMenuItem from './InputMenuItem';
 import { useDispatch } from 'react-redux';
@@ -10,7 +10,7 @@ import { cityRegion } from '../../NewCar/city';
 
 const InputMenu = React.forwardRef(({ 
     list=[],
-    datePicker, category, cityFinder, allFilter, casco,
+    datePicker, category, allFilter, casco,
     menuBrand, menuCity, arrow,
     defaultValue,
     name, label, id, idFilterAll,

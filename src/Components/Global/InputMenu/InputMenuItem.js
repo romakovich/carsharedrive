@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { cityRegion } from '../../NewCar/city';
 
 const InputMenuItem = ({ city, onMouseDown, selectedCity, category, index, menuCity }) => {

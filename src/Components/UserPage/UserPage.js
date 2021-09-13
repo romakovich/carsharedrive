@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Header from '../../Containers/Header/Header';
 import { setFormatName } from '../CarPage/scripts/setFormatName';
 import Footer from '../Global/Footer/Footer';
-import { RentPageCar } from '../RentPage/RentPageCar';
 import UserPageCar from './UserPageCar';
 
 export const UserPage = ({
@@ -14,9 +13,6 @@ export const UserPage = ({
     useEffect(()=>{
         getUser(window.location.search.slice(1));
     }, [])
-
-    const carsList = useSelector(state => state.RentPage.carsList);
-
 
     if(!userPage) return (<>
         <Header />

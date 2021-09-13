@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import Header from '../../Containers/Header/Header';
 import RentPageCar from '../../Containers/RentPage/RentPageCar';
 import ferrari from '../../Assets/img/Rent-page/ferrari.svg'

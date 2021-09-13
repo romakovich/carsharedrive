@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import logo from '../../Assets/img/logo.svg';
 import { Link } from 'react-router-dom';
 import successRent from '../../Assets/img/Rent-page/success-rent.svg'

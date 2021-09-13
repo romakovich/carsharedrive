@@ -4,21 +4,18 @@ import { createTrip, setCarPage } from '../../Store/CarPage/actions';
 import Header from '../Global/Header/Header';
 import SuccessRegistrationRent from './SuccessRegistrationRent';
 import { Link } from 'react-router-dom';
-import DatePicker from '../Global/Datepicker/DatePicker';
 import { setAvailableCar, setAvailableCar2 } from '../../Store/Global/actions';
 import InputMenu from '../Global/InputMenu/InputMenu';
 import { setFormatDate } from '../RentPage/SetFormatDate';
 import { useForm  } from 'react-hook-form';
 import Step2Item from '../NewCar/Step2Item';
 import step2Service from '../NewCar/step2Service.json';
-import { step2Options } from '../NewCar/step2Options';
 import { getDaysBetweenDates } from './scripts/getDaysBetweenDates';
 
 export const RegistrationRent = ({
     
 }) => {
 
-    const [active, setActive] = useState(false);
     const carPage = useSelector(state => state.CarPage.carPage);
 
     let pageId = window.location.search.slice(1);
@@ -31,7 +28,7 @@ export const RegistrationRent = ({
     const successRent = useSelector(state => state.CarPage.successRent);
 
     const [tripPlan, setTripPlan] = useState("Хочу покататься");
-    const { register, getValues } = useForm({
+    const { register } = useForm({
         mode: 'onTouched',
     });
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router';
 import Header from '../../Containers/Header/Header';
 import BackPageArrowC from '../Global/BackPageArrow/BackPageArrowC';

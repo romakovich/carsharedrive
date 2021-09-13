@@ -8,8 +8,6 @@ import Profit from './Profit/Profit';
 import Review from './Review/Review';
 import Cta from './Cta/Cta';
 
-
-
 const Home = () => {
   useEffect(() => {
     document.title="SkillDrive. Главная";

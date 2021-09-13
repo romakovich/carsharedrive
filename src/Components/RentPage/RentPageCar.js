@@ -1,21 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import iconCran from '../../Assets/img/Rent-page/icon-cran.svg';
 import iconTechno from '../../Assets/img/Rent-page/icon-techno.svg';
-import { setCarPage } from '../../Store/CarPage/actions';
 
 export const RentPageCar = ({
     
     isFinder, isMapOpen, myCars,
     index
 }) => { 
-
-    const carPage = useSelector(state => state.CarPage.carPage);
     const carsList = useSelector(state => state.RentPage.carsList);
-
-    const dispatch = useDispatch();
 
     useEffect(()=>{
     })
@@ -24,7 +19,6 @@ export const RentPageCar = ({
     let nameCar = `${carsList[index].brand} ${carsList[index].model}, ${carsList[index].year}`;
     let priceCar = `${carsList[index].price} ₽/сутки`;
     let imgAvatar = `http://localhost:8000/img-car/${carsList[index].owner.mail}/avatar/avatar.jpg`;
-    let ratingCar = carsList[index].rating;
     let power = carsList[index].power;
     let engine = carsList[index].engine;
     let transmission = carsList[index].transmission;
@@ -34,9 +28,7 @@ export const RentPageCar = ({
     let carPageId = `car-page?${carsList[index]._id}`;
     let userPageId = `user-page?${ownerMail}`;
 
-    let registrationRentId = `registration-rent?${carsList[index]._id}`,
-        carRentId = `registration-rent?${carsList[index]._id}`;
-
+    let carRentId = `registration-rent?${carsList[index]._id}`;
 
     return (<>
         <div className={isFinder ? "car-frame is-finder" : "car-frame"} >

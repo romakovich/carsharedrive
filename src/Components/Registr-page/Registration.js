@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Redirect } from 'react-router';
 import Header from '../../Containers/Header/Header';
 import OnSubmit from '../../Containers/Registration/Step1/OnSubmit';

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import logo from '../../Assets/img/logo.svg';
 import { Link } from 'react-router-dom';
 import succesImg from '../../Assets/img/successNewCar.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setStep } from '../../Store/NewCar/actions';
 
 const SuccessNewCar = ({

@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import closeImg from '../../../Assets/img/close.svg';
 import back from '../../../Assets/img/back.svg';
 import login from '../../../Assets/img/login.svg';
 import forgetPass from '../../../Assets/img/forget-pass.svg';
 import sentMail from '../../../Assets/img/sentMail.svg';
 import { Link } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
 import AllForms from '../../../Containers/Login/AllForms';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setAuth } from '../../../Store/Login/actions';
 
 export const Login = ({loginIsClose, closeLogin, isFormForSend, isFormMailSent, 
