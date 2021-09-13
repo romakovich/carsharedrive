@@ -1,5 +1,5 @@
 const fs = require('fs.promises');
-const chalk = require('chalk');
+
 const makrosComponent = require('./makrosComponent');
 const makrosContainer = require('./makrosContainer');
 const makrosStoreActions = require('./makrosStore');

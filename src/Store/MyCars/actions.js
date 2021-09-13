@@ -19,7 +19,7 @@ export const onAuth = data => {
                 dispatch(onAuthSuccess());
             }
             },
-            err => {
+            () => {
                 dispatch(onAuthRequest());
                 setTimeout(() => { dispatch(onAuthFailure(false)); }, 3000);
                 dispatch(onAuthFailure(error.FAILED_TO_FETCH));

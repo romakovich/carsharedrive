@@ -2,8 +2,7 @@ import * as c from './constants';
 import * as error from '../Constants/Errors';
 
 const createAction = type => payload => ({ type, payload });
-import { onSubmitGET, onSubmitPOST } from '../Submits';
-import { setAuth } from '../Login/actions';
+import { onSubmitGET } from '../Submits';
 import jwtDecode from 'jwt-decode';
 import { getName } from '../config/getName';
 
@@ -42,7 +41,7 @@ export const uploadAvatar = () => {
                 return (
                     dispatch(uploadAvatarRequest())
                     , dispatch(uploadAvatarFailure(error.CODE_500_PHOTO))
-                    , setTimeout(() => { dispatch(uploadAvatarFailure(false)) }, 3000) )};
+                    , setTimeout(() => { dispatch(uploadAvatarFailure(false)) }, 3000) )}
             response.json()
             .then(json=> {
                 dispatch(uploadAvatarSuccess(json));
@@ -94,7 +93,7 @@ export const addPhotoDoc = () => {
             if(!response.ok) {
                 return (dispatch(setPhotoDocRequest())
                 , dispatch(setPhotoDocFailure(error.CODE_500_PHOTO))
-                , setTimeout(() => { dispatch(setPhotoDocFailure(false)) }, 3000) )};
+                , setTimeout(() => { dispatch(setPhotoDocFailure(false)) }, 3000) )}
             response.json()
             .then(json=> {
                 dispatch(setPhotoDocSuccess(json));
@@ -113,7 +112,9 @@ export const addPhotoDoc = () => {
                     sumDocsSize = docsArr.concat(getStore().registration.photosDoc)
                     .map(el => Number(el.imgSize))
                     .reduce((accumulator, currentValue) => accumulator + currentValue ).toFixed(2);
-                } catch (err) {}
+                } catch (err) {
+                    console.log(err)
+                }
 
                 if(sumDocsSize > 30) return (
                     dispatch(finishRegFailure(error.VERY_SIZE_DOCS))
@@ -190,9 +191,7 @@ export const setFinishReg = () => {
             headers: { 'Content-Type': 'application/json' },  
             body: JSON.stringify(fullUserData) })
             .then(response => {
-                
                 dispatch(finishRegRequest());
-                
                 if(!response.ok) {
                     (dispatch(finishRegFailure(error.CODE_500))
                     , setTimeout(() => { dispatch(finishRegFailure(false)) }, 3000) )
@@ -215,7 +214,7 @@ export const setFinishReg = () => {
                 }
             )
     
-}
+    }
 }
 
 export const setFinishRegFalse = createAction(c.SET_FINISH_REG);

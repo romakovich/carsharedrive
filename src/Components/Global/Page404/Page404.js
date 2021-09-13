@@ -9,9 +9,9 @@ const Page404 = () => {
     });
     
     return (
-    <div class="error404__container">
+    <div className="error404__container">
         <img src={logo} alt="Logo" />
-        <img src={imgErr} class="error404__container-ufo" alt="UFO hunting a car" />
+        <img src={imgErr} className="error404__container-ufo" alt="UFO hunting a car" />
         <h1>Такой страницы нет</h1>
         <span>Возможно, вы ошиблись в адресе страницы, либо она была удалена.</span>
         <Link to="/" rel="nofollow">

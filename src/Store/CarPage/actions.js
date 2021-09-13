@@ -48,7 +48,7 @@ export const createTrip = (sumPrice, tripPlan) => {
             comment: "Планирую посетить Санкт-Петербург, покататься по городу, съездить в Выборг и Петергоф.",
             optionsDelivery: getStore().CarPage.carPage[0].options[15],
             optionsBabyChair: getStore().CarPage.carPage[0].options[14],
-            optionsEndRentAnywhere: getStore().CarPage.carPage[0].options[16],
+            optionsStartRentAnywhere: getStore().CarPage.carPage[0].options[16],
             optionsEndRentAnywhere: getStore().CarPage.carPage[0].options[17],
             statusStartTalkClient: true,
             statusStartTalkOwner: false,
@@ -83,7 +83,7 @@ export const createTrip = (sumPrice, tripPlan) => {
 
             }
         },
-            err => {
+            () => {
                 dispatch(createTripRequest());
                 setTimeout(() => { dispatch(createTripFailure(false)); }, 3000);
                 
@@ -99,7 +99,7 @@ export const createTrip = (sumPrice, tripPlan) => {
 
     export const updateTrip = (data) => {
         console.log('updateStart')
-        return (dispatch, getStore) => {
+        return (dispatch) => {
             
             dispatch(updateTripRequest(true));
             callWithToken(`http://localhost:8000/rent-car/trip`, 'PUT', data)
@@ -117,7 +117,7 @@ export const createTrip = (sumPrice, tripPlan) => {
                     )))
                 }
             },
-                err => {
+                () => {
                     dispatch(updateTripRequest());
                     setTimeout(() => { dispatch(updateTripFailure(false)); }, 3000);
                     

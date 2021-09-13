@@ -9,7 +9,7 @@ export const setStep1FormsRequest = createAction('SET_STEP1_FORMS_REQUEST');
 export const setStep1FormsSuccess = createAction('SET_STEP1_FORMS_SUCCESS');
 export const setStep1FormsFailure = createAction('SET_STEP1_FORMS_FAILURE');
 export const setStep1Forms = data => {
-    return (dispatch, getStore) => {
+    return async (dispatch) => {
         
         dispatch(setStep1FormsRequest());
         callWithToken("http://localhost:8000/rent-car/step1", 'POST', data)
@@ -23,7 +23,7 @@ export const setStep1Forms = data => {
                 dispatch(setStep1FormsSuccess(data));
             }
             },
-            err => {
+            () => {
                 dispatch(setStep1FormsRequest());
                 setTimeout(() => { dispatch(setStep1FormsFailure(false)); }, 3000);
                 dispatch(setStep1FormsFailure(error.FAILED_TO_FETCH));
@@ -31,7 +31,6 @@ export const setStep1Forms = data => {
             )
         }
     }
-
 
 export const setStep2Forms = createAction('SET_STEP2_FORMS');
 export const setPhotosCars = createAction('SET_PHOTOS_CARS');
@@ -96,7 +95,7 @@ export const createCar = () => {
                            
             }
             },
-            err => {
+            () => {
                 dispatch(createCarRequest());
                 setTimeout(() => { dispatch(createCarFailure(false)); }, 3000);
                 dispatch(createCarFailure(error.FAILED_TO_FETCH));

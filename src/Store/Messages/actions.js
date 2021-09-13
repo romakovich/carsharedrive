@@ -10,7 +10,7 @@ export const getUsersSuccess = createAction('GET_USERS_SUCCESS');
 export const getUsersFailure = createAction('GET_USERS_FAILURE');
 
 export const getUsers = () => {
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         dispatch(getUsersRequest());
         callWithToken(`http://localhost:8000/users?mail=${localStorage.getItem("userMail")}`)
             .then(response => {
@@ -24,7 +24,7 @@ export const getUsers = () => {
                     dispatch(getUsersSuccess(json))})
                 }
             },
-            err => {
+            () => {
                 dispatch(getUsersRequest());
                 setTimeout(() => { dispatch(getUsersFailure(false)); }, 3000);
                 dispatch(getUsersFailure(error.FAILED_TO_FETCH));
@@ -44,7 +44,7 @@ export const setChatMessage = createAction('SET_CHAT_MESSAGE');
 export const lastTrip = createAction('LAST_TRIP');
 
 export const getChatHistory = (data, name, trip) => {
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         dispatch(getChatHistoryRequest());
         callWithToken(`http://localhost:8000/messages/chat?fromUser=${localStorage.getItem("userMail")}&toUser=${data}`)
             .then(response => {
@@ -63,10 +63,10 @@ export const getChatHistory = (data, name, trip) => {
                     dispatch(lastTrip(trip));
             }
             },
-            err => {
-                dispatch(getChatRequest());
+            () => {
+                dispatch(getChatHistoryRequest());
                 setTimeout(() => { dispatch(getChatHistoryFailure(false)); }, 3000);
-                dispatch(getChatFailure(error.FAILED_TO_FETCH));
+                dispatch(getChatHistoryFailure(error.FAILED_TO_FETCH));
             }
             )
         }
@@ -77,10 +77,7 @@ export const updateTripSuccess = createAction('UPDATE_TRIP_SUCCESS');
 export const updateTripFailure = createAction('UPDATE_TRIP_FAILURE');  
 
 export const updateTrip = (payload, rate, review) => {
-    const defaultDate = new Date([new Date().getFullYear(), new Date().getMonth() + 1, new Date().getDate()]);
-    
-    return (dispatch, getStore) => {
-        
+    return (dispatch) => {
         dispatch(updateTripRequest());
         callWithToken(`http://localhost:8000/trip/${payload.lastTrip.dateRent}`,
         'PUT',
@@ -163,10 +160,10 @@ export const updateTrip = (payload, rate, review) => {
                 }
                 
             },
-            err => {
+            () => {
                 dispatch(updateTripRequest());
                 setTimeout(() => { dispatch(updateTripFailure(false)); }, 3000);
-                dispatch(getChatFailure(error.FAILED_TO_FETCH));
+                dispatch(getChatHistoryFailure(error.FAILED_TO_FETCH));
             }
             )
         }
@@ -177,7 +174,7 @@ export const removeMessageSuccess = createAction('REMOVE_MESSAGE_SUCCESS');
 export const removeMessageFailure = createAction('REMOVE_MESSAGE_FAILURE');
 
 export const removeMessage = (messageTime, payload) => {
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         dispatch(removeMessageRequest());
         callWithToken(`http://localhost:8000/messages/${messageTime}`, 'DELETE', payload)
             .then(response => {
@@ -192,10 +189,10 @@ export const removeMessage = (messageTime, payload) => {
                     wsSend();
                 }
             },
-            err => {
+            () => {
                 dispatch(removeMessageRequest());
                 setTimeout(() => { dispatch(updateTripFailure(false)); }, 3000);
-                dispatch(getChatFailure(error.FAILED_TO_FETCH));
+                dispatch(getChatHistoryFailure(error.FAILED_TO_FETCH));
             }
             )
         }
@@ -207,7 +204,7 @@ export const createMessageFailure = createAction('CREATE_MESSAGE_FAILURE');
 
 export const createMessage = (payload) => {
     
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         dispatch(createMessageRequest());
         callWithToken(`http://localhost:8000/messages/`, 'POST', payload)
             .then(response => {
@@ -224,8 +221,8 @@ export const createMessage = (payload) => {
                     wsSend();
                 }
             },
-            err => {
-                dispatch(createMessageeRequest());
+            () => {
+                dispatch(createMessageRequest());
                 setTimeout(() => { dispatch(createMessageFailure(false)); }, 3000);
                 dispatch(createMessageFailure(error.FAILED_TO_FETCH));
             }
@@ -239,7 +236,7 @@ export const updateMessageSuccess = createAction('CREATE_MESSAGE_SUCCESS');
 export const updateMessageFailure = createAction('CREATE_MESSAGE_FAILURE');
 
 export const updateMessage = (messageTime, payload) => {
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         dispatch(updateMessageRequest());
         callWithToken(`http://localhost:8000/messages/${messageTime}`, 'PUT', payload)
             .then(response => {
@@ -249,11 +246,11 @@ export const updateMessage = (messageTime, payload) => {
                 setTimeout(() => { dispatch(updateMessageFailure(false)); }, 2000);
                 response.json().then(json=>console.log(json))
             } else {
-                    dispatch(updateMessageSuccess())};
+                    dispatch(updateMessageSuccess())}
                     wsSend();
             },
-            err => {
-                dispatch(createMessageeRequest());
+            () => {
+                dispatch(createMessageRequest());
                 setTimeout(() => { dispatch(updateMessageFailure(false)); }, 3000);
                 dispatch(updateMessageFailure(error.FAILED_TO_FETCH));
             }

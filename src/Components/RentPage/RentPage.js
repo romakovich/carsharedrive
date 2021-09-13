@@ -144,7 +144,7 @@ export const RentPage = ({carsList
                 <div className="map-wrapper"
                 onClick={()=> {
                     isMapOpen ? setMapOpen(false) : setMapOpen(true);
-                    ;}}>
+                    }}>
                     
                     {!isMapOpen && <> 
                     <img src={iconMap} /> 

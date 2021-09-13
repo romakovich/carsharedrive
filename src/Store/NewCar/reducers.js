@@ -11,7 +11,7 @@ export const NewCar = createReducer( defaultState, {
     },
     [actions.setStep1FormsSuccess]: (state, action) => { 
         { state.step1Forms = action.payload; }
-        { state.isStep = 2 };
+        { state.isStep = 2 }
     },
     [actions.setStep1FormsFailure]: (state, action) => { 
         state.warning = action.payload;
@@ -24,7 +24,7 @@ export const NewCar = createReducer( defaultState, {
     [actions.createCarRequest]: (state) => { 
         state.buttonLoad = state.buttonLoad ? false : true
     },
-    [actions.createCarSuccess]: (state, action) => { 
+    [actions.createCarSuccess]: (state) => { 
         state.isStep = "Success"; 
     },
     [actions.setStep1FormsFailure]: (state, action) => { 

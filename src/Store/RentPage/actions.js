@@ -20,7 +20,7 @@ export const sortCarsList = (getJson, data, mail) => {
     let findStartRent = mail || new Date(data.startRent).getTime();
     let findEndRent = mail || new Date(data.endRent).getTime();
 
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         
         dispatch(sortCarsListRequest());
         callWithToken(mail 
@@ -40,7 +40,7 @@ export const sortCarsList = (getJson, data, mail) => {
                 })
             }
             },
-            err => {
+            () => {
                 dispatch(sortCarsListRequest());
                 setTimeout(() => { dispatch(sortCarsListFailure(false)); }, 3000);
                 dispatch(sortCarsListFailure(error.FAILED_TO_FETCH));
@@ -54,7 +54,7 @@ export const updateCarSuccess = createAction('UPDATE_CAR_SUCCESS');
 export const updateCarFailure = createAction('UPDATE_CAR_FAILURE');
 
 export const updateCar = (_id, payload) => {
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         
         dispatch(updateCarRequest());
         callWithToken(`http://localhost:8000/rent-car/${_id}`, "PUT", payload)
@@ -67,7 +67,7 @@ export const updateCar = (_id, payload) => {
                 dispatch(updateCarSuccess());
             }
             },
-            err => {
+            () => {
                 dispatch(updateCarRequest());
                 setTimeout(() => { dispatch(updateCarFailure(false)); }, 3000);
                 dispatch(updateCarFailure(error.FAILED_TO_FETCH));

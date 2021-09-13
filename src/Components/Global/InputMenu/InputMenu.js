@@ -99,7 +99,7 @@ const InputMenu = React.forwardRef(({
                 style={{background: `url(${iconLupaGreen})` }}
                 ></div>}
                 {category || arrow ? <div className="icon-category">▼</div> : ""}
-                {casco ? <a className="buy-casco" href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%81%D0%BA%D0%BE" target="_blank" rel="nofollow">Купить КАСКО</a> : ""}
+                {casco ? <a className="buy-casco" href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D1%81%D0%BA%D0%BE" target="_blank" rel="nofollow noreferrer">Купить КАСКО</a> : ""}
             </div>
             
             {list 

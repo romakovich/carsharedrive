@@ -8,7 +8,7 @@ export const getUserFailure = createAction('GET_USER_FAILURE');
 
 export const getUser = mail => {
     console.log(mail)
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         dispatch(getUserRequest());
         callWithToken(`http://localhost:8000/users/${mail}`)
             .then(response => {
@@ -22,7 +22,7 @@ export const getUser = mail => {
                 
             }
             },
-            err => {
+            () => {
                 dispatch(getUserRequest());
                 setTimeout(() => { dispatch(getUserFailure(false)); }, 3000);
                 dispatch(getUserFailure(error.FAILED_TO_FETCH));

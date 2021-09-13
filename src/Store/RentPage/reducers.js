@@ -14,9 +14,6 @@ export const RentPage = createReducer( defaultState, {
     [actions.sortCarsListRequest]: (state) => {
         state.buttonLoad = state.buttonLoad ? false : true
     },
-    [actions.sortCarsListSucces]: (state) => {
-        
-    },
     [actions.setFinderHeading]: (state, action) => { state.finderHeading = action.payload },
 
     

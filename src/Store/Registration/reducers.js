@@ -1,7 +1,5 @@
 import { defaultState } from './defaultState';
-import { isAuth } from '../Registration/defaultState';
 import * as c from './constants';
-import jwtDecode from 'jwt-decode';
 
 export const registration = (state = defaultState, action) => {
 
