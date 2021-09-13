@@ -1,4 +1,4 @@
-import { Column, Entity, ObjectIdColumn } from "typeorm";
+import { Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from "typeorm";
 import { RegistrationEntity as Owner} from "../../Registration/Entities/registration.entity";
 
 @Entity("RentCar")

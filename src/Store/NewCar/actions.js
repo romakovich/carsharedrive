@@ -62,13 +62,16 @@ export const createCar = () => {
         })
         
         dispatch(createCarRequest());
+        
         callWithToken("http://localhost:8000/rent-car/create", 'POST', formData, true)
             .then(response => {
             dispatch(createCarRequest());
+            
             if(!response.ok) {
                 dispatch(createCarFailure(error.WRONG_PASSWORD));
                 setTimeout(() => { dispatch(createCarFailure(false)); }, 2000);
                 response.json().then(error=>console.log(error))
+                console.log("test")
             } else {
                 response.json()
                 .then(json=>{
@@ -77,16 +80,15 @@ export const createCar = () => {
                     .then(response=>{
                         response.json()
                         .then(location=> {
-                            console.log(json._id)
-                            fetch(`http://localhost:8000/rent-car/${json._id}`, {
-                                method: 'PUT',   
-                                headers: { 'Content-Type': 'application/json', }, 
-                                body:  JSON.stringify({street: location.results[0].locations[0].street}) })
-                                .then(response=>{
-                                    if(!response.ok) {
-                                        response.json().then(json=>console.log(json))
-                                    }
-                                })
+                            console.log(json._id);
+                            callWithToken(`http://localhost:8000/rent-car/${json._id}`,
+                            'PUT',
+                            {street: location.results[0].locations[0].street})
+                            .then(response=>{
+                                if(!response.ok) {
+                                    response.json().then(json=>console.log(json))
+                                }
+                            })
                         })
                         })
 

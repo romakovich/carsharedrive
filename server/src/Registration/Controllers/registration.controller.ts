@@ -5,8 +5,6 @@ import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { editFileName, imgFileFilter } from '../config/filterEditName';
 import { newUserDto } from '../dto/newUser.dto';
-import { removeDto } from '../dto/remove.dto';
-
 
 @Controller('users/registration')
 export class RegistrationController  {
@@ -60,7 +58,7 @@ export class RegistrationController  {
     }
 
     @Post('removePhoto')
-    removeDoc(@Body() removeDto: removeDto, @Response() res: any) {
+    removeDoc(@Body() removeDto, @Response() res: any) {
       return this.RegistrationService.step3removeDoc(removeDto, res)
     }
 

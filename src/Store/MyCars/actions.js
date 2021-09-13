@@ -7,7 +7,7 @@ export const onAuthSuccess = createAction('ON_AUTH_SUCCESS');
 export const onAuthFailure = createAction('ON_AUTH_FAILURE');
 
 export const onAuth = data => {
-    return (dispatch, getStore) => {
+    return (dispatch) => {
         dispatch(onAuthRequest());
         callWithToken("http://localhost:8000/users/auth/access", 'POST', data)
             .then(response => {

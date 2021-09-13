@@ -76,15 +76,9 @@ export class CreateRentCarDto {
 
     review: string
 
-<<<<<<< HEAD
     photosCars: Array<string>
 
     photosCarsDocs: Array<string>
-=======
-    photosCars: Array<String>
-
-    photosCarsDocs: Array<String>
->>>>>>> 5f24eae1934ef3c1d1a5e045611b10c1da813f6f
 
     rating: number
     ratingCount: number

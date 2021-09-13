@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import logo from '../../../Assets/img/logo.svg';
 import HeaderMobile from '../HeaderMobile/HeaderMobile';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { Link } from 'react-router-dom';
 import Login from '../../../Containers/Login/Login';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { setAuth } from '../../../Store/Login/actions';
 
 export const Header = ({ 
-    isMain, loginIsClose, closeLogin,
-messages }) => {
+    isMain, loginIsClose, closeLogin }) => {
     
     const open = () => {
         closeLogin(false);
         document.querySelector(".mobile__wrapper").classList.toggle("is-active");
     }
     const isAuth = useSelector(state => state.login.isAuth);
+    const dispatch = useDispatch();
 
     return (
     <>

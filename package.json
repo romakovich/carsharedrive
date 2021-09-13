@@ -8,8 +8,7 @@
     "start": "webpack-dev-server --open --history-api-fallback --port 80",
     "build": "webpack",
     "nodemon": "nodemon src/express/index.js",
-    "nest": "cd server & npm run start:dev",
-    "next": "cd src/nest-js & npm run start",
+    "server": "cd server & npm run start:dev",
     "nest-static": "cd src/nest-js & npm run start",
     "all-install": "npm i & npm run build & cd src/nest-js & npm i",
     "full-start": "npm start && npm run start:dev --prefix src/nest-js"
@@ -41,6 +40,7 @@
     "css-loader": "^5.0.1",
     "css-modules": "^0.3.0",
     "date-fns": "^2.22.1",
+    "eslint": "^7.32.0",
     "file-loader": "^6.2.0",
     "fs": "0.0.1-security",
     "fs-extra": "^10.0.0",

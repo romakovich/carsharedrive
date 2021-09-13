@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 import { TripEntity } from 'src/trip/entities/trip.entity';
-import { getMongoManager } from 'typeorm';
-import { RentCar as RentCarEntity } from '../entities/rent-car.entity';
+import { getConnectionManager, getMongoManager, Repository } from 'typeorm';
+import { RentCar, RentCar as RentCarEntity } from '../entities/rent-car.entity';
 import { RentCarRepository } from '../repositories/rent-car.repository';
 const ObjectId = require('mongodb').ObjectId; 
 
 @Injectable()
 export class RentCarService {
-  constructor(private rentCarRepository: RentCarRepository
-    
+  constructor(
+    @InjectRepository(RentCar)
+    private rentCarRepository: Repository<RentCar>
     ) {}
     
   async findStart(param) {
@@ -58,8 +60,6 @@ export class RentCarService {
   }
 
   async update(payload, param) {
-    console.log(param);
-    console.log(payload)
     const manager = getMongoManager();
     const updateData = payload;
 
@@ -91,8 +91,7 @@ export class RentCarService {
 
   async getByOwner(req) {
     const manager = getMongoManager();
-    console.log(req)
-    return await manager.find(RentCarEntity, {
+    return await manager.find(RentCar, {
       where: {
         ['owner.mail']: req.mail
       }
@@ -102,8 +101,6 @@ export class RentCarService {
   async getCar(req) {
     const manager = getMongoManager();
     const findCar = await manager.find(RentCarEntity, {"_id": ObjectId(req.id)});
-
-
     const trips = await manager.find(TripEntity, {
       where: {
           ['car._id']: ObjectId(req.id)

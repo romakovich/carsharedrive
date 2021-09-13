@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 const constants = require('./constants.js');
 
 export const getNewToken = (req, res) => {

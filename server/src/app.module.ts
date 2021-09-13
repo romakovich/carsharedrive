@@ -4,10 +4,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { RentCarModule } from './Rent-car/rent-car.module';
 import { TripModule } from './trip/trip.module';
 import { MessagesModule } from './messages/messages.module';
+
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { RentCar } from './Rent-car/entities/rent-car.entity';
 
 @Module({
   imports: 
@@ -21,8 +23,9 @@ import { MessagesModule } from './messages/messages.module';
       useNewUrlParser: true,
       useUnifiedTopology: true,
       entities: [
+        RentCar,
         `${__dirname}/**/*.entity.{ts,js}`
-      ]
+      ],
     }),
     MongooseModule.forRoot('mongodb://localhost/skilldrive2'),
     RegistrationModule,

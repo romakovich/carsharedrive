@@ -1,6 +1,4 @@
-import { Column, Entity, ObjectIdColumn } from "typeorm";
-import { Document } from 'mongoose';
-export type RegistrationDocument = typeof RegistrationEntity & Document;
+import { Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("Users")
 export class RegistrationEntity {

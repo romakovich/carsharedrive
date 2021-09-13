@@ -15,7 +15,6 @@ export class LoginController  {
 
     @Post('refresh')
     refreshToken(@Body() req: any, @Response() res: any) {
-
         return this.LoginService.refreshToken(req, res)
     }
 

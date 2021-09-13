@@ -1,6 +1,5 @@
-import { testDto } from '../dto/testDto';
 import { UsersService } from '../Services/users.service';
-import { Body, Controller, Query, Post, HttpCode, Response, UseInterceptors, UploadedFile, Get, UploadedFiles, Param } from '@nestjs/common';
+import { Controller, Query, Get, Param } from '@nestjs/common';
 
 @Controller('users')
 export class UsersController  {

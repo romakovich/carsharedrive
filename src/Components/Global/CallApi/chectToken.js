@@ -6,6 +6,7 @@ import { ACCESS_TOKEN_STORAGE_KEY, REFRESH_TOKEN_STORAGE_KEY,
     from './constants';
 
 export async function callWithToken(url, method, body, forms) {
+    
     let accessToken = localStorage.getItem("accessToken");
     let refreshToken = localStorage.getItem(REFRESH_TOKEN_STORAGE_KEY);
     console.log(refreshToken)
@@ -39,24 +40,33 @@ export async function callWithToken(url, method, body, forms) {
             const data = await response.json();
             localStorage.setItem(ACCESS_TOKEN_STORAGE_KEY, data.accessToken);
             localStorage.setItem(REFRESH_TOKEN_STORAGE_KEY, data.refreshToken);
+            accessToken = data.accessToken;
         } else {
-            console.log("Не прошли валидацию")
+            console.log("Не прошли валидацию");
+            localStorage.clear();
+            window.location.href = "http://localhost";
         }
     }
-    return forms ?
-    fetch(url, {
-        method,  
-        body
-    })
-    :
-    fetch(url, {
-        method,  
-        headers: { 
-            'Accept': 'application/json',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${accessToken}`
-        },  
-        body: JSON.stringify(body) 
-    })
-    
+
+    if (forms) {
+
+        return fetch(url, {
+            method,  
+            body,
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            }
+        })
+    } else {
+        return fetch(url, {
+            method,  
+            headers: { 
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`
+            },  
+            body: JSON.stringify(body) 
+        })
+    }
 }

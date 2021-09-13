@@ -50,7 +50,7 @@ export class RentCarController {
 
   @Get('car-page/:id')
   GetCar(@Param() param: string) {
-    console.log(param)
+    console.log(param);
     return this.rentCarService.getCar(param)
   }
 

@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, Put, Param, Delete, Response, Request, HttpCode, Query } from '@nestjs/common';
 import { TripService } from './trip.service';
 import { CreateTripDto } from './dto/create-trip.dto';
-import { UpdateTripDto } from './dto/update-trip.dto';
 
 @Controller('trip')
 export class TripController {

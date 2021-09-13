@@ -21,5 +21,5 @@ export default combineReducers({
   CarPage,
   Messages,
   RegistrationRent,
-  UserPage
+  UserPage,
 })

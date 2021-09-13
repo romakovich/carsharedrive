@@ -37,5 +37,3 @@ lerna-debug.log*
 
 #Next
 .next
-
-package-lock.json

@@ -14,7 +14,6 @@ export const MyCars = ({
         sortCarsList(
             setCarsList, null, localStorage.getItem("userMail")
         );
-
     }, [])
     
     const carsList = useSelector(state => state.RentPage.carsList);
