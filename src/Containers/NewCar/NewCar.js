@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { NewCar } from '../../Components/NewCar/NewCar';
 
-import { setPhotosCars, setPhotosCarsDocs, setRegButtonActive, setStep, setStep1Forms } from '../../Store/NewCar/actions';
+import { setPhotosCars, setPhotosCarsDocs, setRegButtonActive, setStep, setStep1Forms, setStep2Forms } from '../../Store/NewCar/actions';
 
 const mapStateToProps = state => {
     const { NewCar } = state;

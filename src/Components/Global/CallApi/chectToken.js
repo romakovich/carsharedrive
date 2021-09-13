@@ -49,7 +49,6 @@ export async function callWithToken(url, method, body, forms) {
     }
 
     if (forms) {
-
         return fetch(url, {
             method,  
             body,
