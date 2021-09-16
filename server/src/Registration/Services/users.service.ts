@@ -2,7 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { MessagesEntity } from "src/messages/entities/message.entity";
 import { RentCar } from "src/Rent-car/entities/rent-car.entity";
 import { TripEntity } from "src/trip/entities/trip.entity";
-import { getMongoManager, Not } from "typeorm";
+import { getMongoManager } from "typeorm";
 import { RegistrationEntity } from '../entities/registration.entity';
 
 @Injectable()

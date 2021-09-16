@@ -49,17 +49,22 @@ export class MessagesService {
 
   async update(messageTime, payload) {
     const manager = getMongoManager();
-    const findMessage = await manager.findOne(MessagesEntity, {time: Number(messageTime)});
+    const findMessage = await manager
+    .findOne(MessagesEntity, 
+      {time: Number(messageTime)});
     
     if(payload.emoji) {
-      const newEmojiArray = [...findMessage.emoji, payload.emoji];
-      await manager.update(
+      const newEmojiArray = [...findMessage.emoji
+        , payload.emoji];
+      await manager
+      .update(
         MessagesEntity, 
         { time: Number(messageTime) },
         { emoji: newEmojiArray }
       )
     } else {
-      await manager.update(
+      await manager
+      .update(
         MessagesEntity, 
         { time: payload.messageTime },
         payload

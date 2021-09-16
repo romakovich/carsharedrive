@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import OnSubmit from './OnSubmit';
 import Step2Item from './Step2Item';
 import { step2Options } from './step2Options';
 import step2Service from './step2Service.json';
-import { useDispatch, useSelector } from 'react-redux';
 
 const Step2 = ({
     

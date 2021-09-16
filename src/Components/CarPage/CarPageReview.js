@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { month as monthName} from '../Global/Datepicker/Month';
 
 const CarPageReview = ({
@@ -12,15 +12,10 @@ const CarPageReview = ({
         + "."
     }
 
-    const mail = trip.clientInfo.mail,
-        name = setFormatName(trip.clientInfo.name),
+    const name = setFormatName(trip.clientInfo.name),
         date = `${monthName[new Date(trip.endRent).getMonth()]} ${new Date(trip.endRent).getFullYear()}`,
         text = trip.review;
 
-    useEffect(()=>{
-        
-    }, [])
-    
     return (<>
         <div className="review">
             <div className="wrapper">

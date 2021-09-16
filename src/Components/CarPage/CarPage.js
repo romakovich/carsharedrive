@@ -1,11 +1,10 @@
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import DatePicker from '../Global/Datepicker/DatePicker';
 import Header from '../Global/Header/Header';
 import { step2Options } from '../NewCar/step2Options';
 import iconSlideShow from '../../Assets/img/Rent-page/slideShow.svg';
-import SuccessRegistrationRent from '../RegistrationRent/SuccessRegistrationRent';
 import { setFormatName } from './scripts/setFormatName';
 import { changePhoto } from './scripts/changePhoto';
 import { setDateName } from './scripts/setDateName';

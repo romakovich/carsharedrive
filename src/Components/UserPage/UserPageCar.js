@@ -7,8 +7,6 @@ const UserPageCar = ({
     car, isMapOpen
 }) => {
 
-    let nameCar = `${car.brand} ${car.model}, ${car.year}`;
-
     return (<>
         <div className="car-frame" >
             <Link to={car._id}></Link>

@@ -20,8 +20,6 @@ export const PhotoItem = ({
     }
     const [imgLoad, setImgLoad] = useState(true);
 
-
-
     return (
         <div className="cloud__container-photo">
             <div className="cloud__container-photo-frame">

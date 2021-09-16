@@ -10,8 +10,6 @@ const Heading = () => {
 const registrationWithId = `Registration?${uuidv4()}`;
 const testNext = () => {
     fetch('http://localhost:8000/user-page/ddd')
-
-
 }
 
 return (

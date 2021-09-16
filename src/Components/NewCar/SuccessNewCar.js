@@ -5,9 +5,7 @@ import succesImg from '../../Assets/img/successNewCar.svg';
 import { useDispatch } from 'react-redux';
 import { setStep } from '../../Store/NewCar/actions';
 
-const SuccessNewCar = ({
-
-}) => {
+const SuccessNewCar = ({}) => {
 
     const dispatch = useDispatch();
 

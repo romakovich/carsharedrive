@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import EmojiItem from './EmojiItem';
 import { emojiList } from './emojiList';
 import EmojiMenuItem from './EmojiMenuItem';
@@ -11,11 +11,6 @@ const Message = ({
     payload, toUser, 
     updateTrip, updateMessage
 }) => {
-
-    useEffect(()=>{
-        
-    })
-
 
     const [rate, setRate] = useState(-1);
     const [emojiMenu, setEmojiMenu] = useState(false);
@@ -106,8 +101,13 @@ const Message = ({
 
                 {payload.chatBot == "map" 
                 ?   <YMaps >
-                        <div className="yandex-map" style={{marginTop: "10px", marginLeft: "11px"}}>
-                            <Map defaultState={{ center: payload.lastTrip.car.geo, zoom: 14 }} 
+                        <div 
+                        className="yandex-map" 
+                        style={{marginTop: "10px", 
+                        marginLeft: "11px"}}>
+                            <Map 
+                            defaultState={{ center: payload.lastTrip.car.geo, 
+                                zoom: 14 }} 
                             modules={[
                             "layout.ImageWithContent", 
                             'geoObject.addon.balloon', 

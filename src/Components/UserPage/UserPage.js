@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Header from '../../Containers/Header/Header';
 import { setFormatName } from '../CarPage/scripts/setFormatName';
